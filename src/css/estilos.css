@@ -1,0 +1,195 @@
+body.modo-claro {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+body.modo-escuro {
+    background-color: #333;
+    color: #fff;
+}
+
+main::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 80vw;
+
+    background: linear-gradient(-233deg, #000 25%, rgba(0, 0, 0, 0) 55%) no-repeat;
+}
+
+main .personagem {
+    display: none;
+    height: 100vh;
+}
+
+main .personagem.selecionado {
+    display: block;
+}
+
+main .personagem .imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conteudo {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 380px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo com transparência */
+    padding: 20px; /* Espaçamento interno para o conteúdo */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.conteudo .nome-personagem {
+    color: #ffffff;
+    font-size: 32px; /* Tamanho do título reduzido */
+    font-family: "Secular One";
+    font-weight: 500; /* Fonte mais pesada */
+    margin-bottom: 10px; /* Espaçamento inferior reduzido */
+}
+
+
+.conteudo .descricao {
+    color: #ffffff;
+    font-family: "Rubik";
+    font-size: 16px; /* Tamanho da fonte aumentado */
+    line-height: 1.5; /* Espaçamento entre linhas aumentado */
+    margin-top: 10px; /* Espaçamento superior adicionado */
+}
+
+
+.conteudo .logo {
+    background-image: url("/src/imagens/tesrte-removebg-preview.png");
+    background-size: cover;
+    height: 6rem;
+    width: 10rem;
+    margin-bottom: 1.75rem;
+    transition: transform 0.3s ease;
+
+    /* Adiciona uma transformação de escala no hover */
+    &:hover {
+        animation: estourar 0.5s ease;
+        transform: scale(1.1); /* Escala a logo em 110% do tamanho original */
+    }
+}
+
+/* Define a animação estourar */
+@keyframes estourar {
+    0% {
+        transform: scale(1); /* Começa com a escala normal */
+    }
+    50% {
+        transform: scale(1.2); /* Aumenta a escala em 120% no meio da animação */
+    }
+    100% {
+        transform: scale(1); /* Volta à escala normal no final da animação */
+    }
+}
+
+
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.botoes .botao {
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.botoes .botao img {
+    border-radius: 50%;
+}
+
+.botoes .botao.selecionado {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #D9D9D9;
+}
+
+.botoes .botao:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modo-toggle button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+.main .personagem .imagem:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Estilos para o modo de cor padrão */
+.cor-padrao {
+    background-color: white;
+    color: black;
+}
+
+/* Estilos para o modo de cor alternativo */
+.cor-alternativa {
+    background-color: black;
+    color: white;
+}
+
+/* Estilos para o texto dentro da classe .personagem quando o mouse passa por cima */
+.personagem:hover h2,
+.personagem:hover p {
+    color: rgb(224, 9, 9); /* Altere para a cor desejada */
+}
+
+/* Estilos para a imagem dentro da classe .personagem */
+.personagem .imagem {
+    opacity: 0.8; /* Defina a opacidade inicial (0.7 é apenas um exemplo, ajuste conforme necessário) */
+    transition: opacity 0.3s ease; /* Adicione uma transição suave de 0.3 segundos */
+}
+
+/* Quando o mouse passa por cima da imagem, aumente a opacidade para torná-la visível */
+.personagem:hover .imagem {
+    opacity: 1; /* Opacidade total quando o mouse está sobre a imagem */
+}
+
+/* Estilos para a animação das letras caindo */
+@keyframes letraCaindo {
+    0% {
+        transform: translateY(-100%); /* Comece fora da visão no topo */
+        opacity: 0; /* Comece invisível */
+    }
+    100% {
+        transform: translateY(0%); /* Desça até a posição original */
+        opacity: 1; /* Torne-se totalmente visível */
+    }
+}
+
+/* Aplicar a animação às letras dentro de .nome-personagem */
+.nome-personagem {
+    animation: letraCaindo 0.9s ease-in-out; /* Use a animação 'letraCaindo' com duração de 0.5 segundos */
+    animation-fill-mode: both; /* Mantenha as propriedades finais após a animação */
+}
+
+.conteudo .descricao {
+    animation: letraCaindo 2s ease-in-out; /* Use a animação 'letraCaindo' com duração de 0.5 segundos */
+    animation-fill-mode: both; /* Mantenha as propriedades finais após a animação */
+}
+
